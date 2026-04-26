@@ -30,7 +30,7 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "outputPath":{"base" :"docs", "browser":""},
-            "baseHref": "/JesusAndres765.github.io/",
+            "baseHref": "/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
