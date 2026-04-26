@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HeaderService } from '../services/header-service/header';
 import { Header } from '..//models/header/header.model';
@@ -15,7 +15,9 @@ export class HeaderComponent {
 
   constructor(
     public headerService: HeaderService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+
+    private cdr: ChangeDetectorRef
   ) {
     if (isPlatformBrowser(this.platformId)) {
       console.log(this.headerService);
@@ -28,6 +30,7 @@ export class HeaderComponent {
       ).subscribe(data => {
         this.header = data[0];
         console.log(this.header);
+        this.cdr.detectChanges();
       });
     }
   }
