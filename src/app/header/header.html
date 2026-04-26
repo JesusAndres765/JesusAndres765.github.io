@@ -6,7 +6,7 @@
   </div>
 
   <div class="header-photo">
-    <img src="{{header.photoUrl}}" alt="Profile photo">
+    <img *ngIf="header.photoUrl" [src]="header.photoUrl" alt="Profile photo">
   </div>
 
   <div class="header-contact">
