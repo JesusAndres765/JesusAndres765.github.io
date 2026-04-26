@@ -1,0 +1,7 @@
+<div class="section-title">Interests</div>
+<ul class="tags-list">
+  <li class="tag-item interest-item" *ngFor="let interest of interests">
+    <span class="tag-name">{{interest.name}}</span>
+    <span class="tag-desc" *ngIf="interest.description">{{interest.description}}</span>
+  </li>
+</ul>

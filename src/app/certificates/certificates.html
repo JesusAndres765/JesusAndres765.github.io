@@ -1,0 +1,10 @@
+<div class="section-title">Certificates</div>
+<ul class="cert-list">
+  <li class="cert-item" *ngFor="let cert of certificates">
+    <span class="cert-icon">🏅</span>
+    <div class="cert-info">
+      <div class="cert-title">{{cert.title}}</div>
+      <div class="cert-meta">{{cert.issuer}} · {{cert.date}}</div>
+    </div>
+  </li>
+</ul>

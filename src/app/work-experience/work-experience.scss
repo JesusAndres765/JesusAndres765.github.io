@@ -1,0 +1,59 @@
+.timeline {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-item {
+  padding-left: 14px;
+  border-left: 2px solid #ebebeb;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1a1a;
+}
+
+.timeline-dates {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 2px;
+}
+
+.timeline-location {
+  margin-left: 6px;
+  font-style: italic;
+}
+
+.timeline-position {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.timeline-company {
+  font-size: 12px;
+  color: #555;
+  margin-top: 1px;
+}
+
+.timeline-accomplishments {
+  font-size: 12.5px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.label {
+  font-weight: 600;
+  color: #aaa;
+  margin-right: 4px;
+}

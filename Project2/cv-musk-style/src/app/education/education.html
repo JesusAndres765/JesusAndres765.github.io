@@ -1,0 +1,9 @@
+<div class="section-title">Education</div>
+<ul class="timeline">
+  <li class="timeline-item" *ngFor="let edu of education">
+    <div class="timeline-dates">{{edu.startDate}} — {{edu.endDate}}</div>
+    <div class="timeline-position">{{edu.degree}}</div>
+    <div class="timeline-company">{{edu.institution}}</div>
+    <div class="timeline-accomplishments">{{edu.description}}</div>
+  </li>
+</ul>
