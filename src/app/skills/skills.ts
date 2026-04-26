@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { SkillsService } from '../services/skills-service/skills';
 import { Skills } from '../models/skills/skills.model';
 import { map } from 'rxjs/operators';
@@ -13,18 +14,19 @@ export class SkillsComponent {
 
   skills: Skills[] = [];
 
-  constructor(public skillsService: SkillsService) {
-
-    this.skillsService.getSkills().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  constructor(public skillsService: SkillsService,
+    @Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.skillsService.getSkills().snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+          )
         )
-      )
-    ).subscribe(data => {
-      this.skills = data;
-      console.log(this.skills);
-    });
-
+      ).subscribe(data => {
+        this.skills = data;
+        console.log(this.skills);
+      });
+    }
   }
 }
