@@ -1,0 +1,14 @@
+<div class="section-title">Work Experience</div>
+<ul class="timeline">
+  <li class="timeline-item" *ngFor="let job of workExperience">
+    <div class="timeline-dates">
+      {{job.startDate}} — {{job.endDate}}
+      <span class="timeline-location">{{job.location}}</span>
+    </div>
+    <div class="timeline-position">{{job.position}}</div>
+    <div class="timeline-company">{{job.company}}</div>
+    <div class="timeline-accomplishments">
+      <span class="label">Logros:</span> {{job.accomplishments}}
+    </div>
+  </li>
+</ul>
