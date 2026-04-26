@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { InterestsService } from '../services/interests-service/interests';
 import { Interests } from '../models/interests/interests.model';
 import { map } from 'rxjs/operators';
@@ -13,8 +14,9 @@ export class InterestsComponent {
 
   interests: Interests[] = [];
 
-  constructor(public interestsService: InterestsService) {
-
+  constructor(public interestsService: InterestsService,
+    @Inject(PLATFORM_ID) private platformId: Object) {
+      if (isPlatformBrowser(this.platformId)) {
     this.interestsService.getInterests().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -25,6 +27,6 @@ export class InterestsComponent {
       this.interests = data;
       console.log(this.interests);
     });
-
+  }
   }
 }

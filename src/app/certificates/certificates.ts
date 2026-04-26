@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CertificatesService } from '../services/certificates-service/certificates';
 import { Certificates } from '../models/certificates/certificates.model';
 import { map } from 'rxjs/operators';
@@ -13,8 +14,9 @@ export class CertificatesComponent {
 
   certificates: Certificates[] = [];
 
-  constructor(public certificatesService: CertificatesService) {
-
+  constructor(public certificatesService: CertificatesService,
+    @Inject(PLATFORM_ID) private platformId: Object) {
+      if (isPlatformBrowser(this.platformId)) {
     this.certificatesService.getCertificates().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -25,6 +27,6 @@ export class CertificatesComponent {
       this.certificates = data;
       console.log(this.certificates);
     });
-
+  }
   }
 }
