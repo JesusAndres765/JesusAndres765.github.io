@@ -59,3 +59,17 @@
     list-style: disc;
   }
 }
+
+.logros-section {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.temp-list {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto; /* Por si añades demasiados logros */
+}

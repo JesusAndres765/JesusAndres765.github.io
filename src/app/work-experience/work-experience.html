@@ -8,8 +8,8 @@
     <div class="timeline-position">{{job.position}}</div>
     <div class="timeline-company">{{job.company}}</div>
     <ul class="accomplishments-list">
-      <li *ngFor="let item of job.accomplishments?.split(',')">
-        {{ item.trim() }}
+      <li *ngFor="let item of job.accomplishments">
+        {{ item }}
       </li>
     </ul>
   </li>
