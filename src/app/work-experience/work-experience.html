@@ -7,8 +7,10 @@
     </div>
     <div class="timeline-position">{{job.position}}</div>
     <div class="timeline-company">{{job.company}}</div>
-    <div class="timeline-accomplishments">
-      <span class="label">Logros:</span> {{job.accomplishments}}
-    </div>
+    <ul class="accomplishments-list">
+      <li *ngFor="let item of job.accomplishments?.split(',')">
+        {{ item.trim() }}
+      </li>
+    </ul>
   </li>
 </ul>
