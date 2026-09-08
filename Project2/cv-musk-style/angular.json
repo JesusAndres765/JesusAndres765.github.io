@@ -40,7 +40,7 @@
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
-            "outputMode": "server",
+            "outputMode": "dist/cv-musk-style/browser",
             "ssr": {
               "entry": "src/server.ts"
             }
