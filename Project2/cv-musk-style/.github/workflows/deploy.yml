@@ -26,7 +26,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: dist/cv-musk-style/browser
 
   deploy:
     needs: build
